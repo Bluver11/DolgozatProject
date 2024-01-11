@@ -3,7 +3,7 @@
 	public class Dolgozat
 	{
 		private List<int> pontok = new List<int>();
-
+		
 
 		public void PontFelvesz(int x)
 		{
@@ -74,7 +74,59 @@
 			}
 
 		}
+		public int Jo
+		{
+			get
+			{
+				int jo = 0;
+				for(int i=0; i<pontok.Count;i++)
+				{
+					if (pontok[i] >= 71 && pontok[i] <= 80)
+					{
+						jo++;
+					}
+				}
+				return jo;
+			}
+			
+		}
 
+		public int Jeles
+		{
+			get
+			{
+				
+				for (int i = 0; i < pontok.Count; i++)
+				{
+					if (pontok[i] >= 81)
+					{
+						jeles++;
+					}
+				}
+				return jeles;
+			}
+		}
+
+		public bool Gyanus(int kivalok)
+		{
+			if (kivalok < 0)
+			{
+				throw new ArgumentException("A kiváló tanulok száma nem lehet 0-nál kevesebb", nameof(kivalok));
+			}
+			int jeles = 0;
+			for (int i = 0; i < pontok.Count; i++)
+			{
+				if (pontok[i] >= 81)
+				{
+					jeles++;
+				}
+			}
+			if(jeles > kivalok)
+			{
+				return true;
+			}
+			return false;
+		}
 
 		public Dolgozat()
 		{
